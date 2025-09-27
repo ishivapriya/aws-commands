@@ -1,0 +1,48 @@
+sudo yum update –y
+
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+
+sudo yum upgrade
+
+
+sudo yum install java-21-amazon-corretto -y
+
+
+sudo yum install jenkins -y
+
+
+sudo systemctl enable jenkins
+
+
+sudo systemctl start jenkins
+
+
+yum install git -y
+yum install java* -y
+yum install wget -y
+github add webhooks for payload url jenkins link/github-webhook/ for secret key jenkins,profile,security,create new toekn
+jenkins plugins maven,github integration
+
+yum install maven -y
+mvn -v
+plugins install,tools
+
+if the size is not enough
+df -h
+vim /etc/fstab
+tmpfs /tmp tmpfs defaults,noatime,mode=1777,size=2G 0 0
+systemctl daemon-reload
+reboot
+
+to fast jenkins
+cd /var/lib/jenkins
+ll
+cat jenkins.model --copy
+vim --copy
+systemctl restart jenkins.service
