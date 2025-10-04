@@ -1,3 +1,5 @@
+create instance jenkins-server-12,gp2,create key and sg--->add custom-8080-0.0.0.0/0--->launch
+
 sudo yum update –y
 
 
@@ -21,24 +23,53 @@ sudo systemctl enable jenkins
 
 
 sudo systemctl start jenkins
+paste the public ip with :8080 on edge
+copy the link
 
-
-yum install git -y
-yum install java* -y
-yum install wget -y
-github add webhooks for payload url jenkins link/github-webhook/ for secret key jenkins,profile,security,create new toekn
-jenkins plugins maven,github integration
-
-yum install maven -y
-mvn -v
-plugins install,tools
-
-if the size is not enough
+if the size is not enough,if it shows offline
+sudo mount -o remount,size=2G /tmp
 df -h
-vim /etc/fstab
+vim /etc/fstab paste the below code
 tmpfs /tmp tmpfs defaults,noatime,mode=1777,size=2G 0 0
 systemctl daemon-reload
 reboot
+yum install git -y
+again connect the server
+refresh and sign in again on jenkins page
+
+    create another instance-dev-server(create sg)
+    1  ip a s
+    2  yum install git -y
+    3  mkdir /data
+    4  cd /data
+    5  git init
+    6  cat >index.html
+    7  cd
+    8  ssh-keygen
+    9  cat /root/.ssh/id_rsa.pub
+   10  git add.
+   11  git add .
+   12  cd
+   13  cd /data
+   14  git add .
+   15  git commit -m "message" index.html
+   16  git branch -M main
+   17  git remote add origin git@github.com:ishivapriya/hello.git
+   18  git push -u origin main
+
+
+
+
+
+github under repositort setting add webhooks for payload url jenkins link/github-webhook/ 
+for secret key jenkins,profile,security,create new toekn copy the secret code and paste it on webhooks secret key
+
+goto jenkins profile
+new item-->name-->freestyle-->select 
+for url goto github repository--code--http
+and paste the code 
+
+
 
 to fast jenkins
 cd /var/lib/jenkins
